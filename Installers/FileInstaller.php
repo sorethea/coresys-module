@@ -4,7 +4,8 @@ namespace Modules\Coresys\Installers;
 
 class FileInstaller
 {
-    public function install(){
+    public function install(): string
+    {
         return "Module is installed";
     }
 }
