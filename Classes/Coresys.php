@@ -18,7 +18,7 @@ class Coresys
         $module = \Module::find($name);
         try{
             \DB::beginTransaction();
-            \Artisan::call("module:migrate ".$name);
+            \Artisan::call("module:migrate-fresh ".$name);
             \Artisan::call("module:seed ".$name);
             $module->enable();
             \DB::commit();
