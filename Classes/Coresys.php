@@ -21,8 +21,8 @@ class Coresys extends Module
         parent::__construct($app, $name, $path);
     }
 
-    public static function install():string{
-        return "This module is installed";
+    public static function install():void{
+        registerAliases();
     }
 
     public function registerAliases(): void
