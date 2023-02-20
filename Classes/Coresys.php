@@ -20,4 +20,8 @@ class Coresys extends Module
         parent::boot();
         $this->installer = $this->app[FileInstaller::class];
     }
+
+    public function install():string{
+        return "This module is installed";
+    }
 }
