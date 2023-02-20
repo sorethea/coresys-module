@@ -17,7 +17,7 @@ class Coresys extends Module
     public function boot(): void
     {
         //$this->repository = $this->app[FileRepository::class];
-        $this->installer = $this->app[FileInstaller::class];
         parent::boot();
+        $this->installer = $this->app[FileInstaller::class];
     }
 }
