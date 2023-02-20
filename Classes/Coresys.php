@@ -14,10 +14,9 @@ class Coresys extends Module
     protected mixed $installer;
     protected mixed $repository;
 
-    public function boot(): void
+    public function __construct(Container $app, string $name, $path)
     {
-        $this->repository = $this->app[FileRepository::class];
-        parent::boot();
+        parent::__construct($app, $name, $path);
         $this->installer = $this->app[FileInstaller::class];
     }
 
