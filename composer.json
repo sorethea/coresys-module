@@ -14,7 +14,7 @@
                 "Modules\\Coresys\\Providers\\CoresysServiceProvider"
             ],
             "aliases": {
-
+                "Coresye": "Modules\\Coresys\\Facades\\Coresys"
             }
         }
     },
