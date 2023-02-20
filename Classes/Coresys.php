@@ -12,11 +12,11 @@ class Coresys extends Module
      * @var
      */
     protected mixed $installer;
-    //protected mixed $repository;
+    protected mixed $repository;
 
     public function boot(): void
     {
-        //$this->repository = $this->app[FileRepository::class];
+        $this->repository = $this->app[FileRepository::class];
         parent::boot();
         $this->installer = $this->app[FileInstaller::class];
     }
