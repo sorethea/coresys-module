@@ -18,11 +18,13 @@ class Coresys
 
         try{
             $module = \Module::find($name);
-            \DB::beginTransaction();
-            \Artisan::call("module:migrate-refresh ".$name);
-            \Artisan::call("module:seed ".$name);
-            $module->enable();
-            \DB::commit();
+            if(!empty($module)){
+                \DB::beginTransaction();
+                \Artisan::call("module:migrate-refresh ".$name);
+                \Artisan::call("module:seed ".$name);
+                $module->enable();
+                \DB::commit();
+            }
         }catch (\Throwable $e){
             \DB::rollBack();
             report($e);
@@ -33,10 +35,12 @@ class Coresys
     {
         try{
             $module = \Module::find($name);
-            \DB::beginTransaction();
-            \Artisan::call("module:migrate-rollback ".$name);
-            $module->disable();
-            \DB::commit();
+            if(!empty($module)){
+                \DB::beginTransaction();
+                \Artisan::call("module:migrate-rollback ".$name);
+                $module->disable();
+                \DB::commit();
+            }
         }catch (\Throwable $e){
             \DB::rollBack();
             report($e);
