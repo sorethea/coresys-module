@@ -38,7 +38,6 @@ class CoresysServiceProvider extends ServiceProvider
     {
         $this->app->register(AuthServiceProvider::class);
         $this->app->register(FilamentServiceProvider::class);
-        $this->app->alias(CoresysInterface::class, 'coresys');
     }
 
     /**
@@ -63,6 +62,6 @@ class CoresysServiceProvider extends ServiceProvider
      */
     public function provides()
     {
-        return [ CoresysInterface::class,'coresys'];
+        return [];
     }
 }

@@ -19,6 +19,11 @@ class Coresys
         return $module->get("type")??'module';
     }
 
+    public static function setType($name,$type): void {
+        $module = \Module::find($name);
+        if(!empty($module)) $module->set("type",$type);
+    }
+
     public static function install($name): void {
         try{
             $module = \Module::find($name);
