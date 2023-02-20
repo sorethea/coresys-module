@@ -7,5 +7,4 @@ class Coresys
     public static function all(){
         return \Modue::all();
     }
-
 }
