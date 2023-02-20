@@ -13,4 +13,19 @@ class Coresys
     public static function find($name): Module{
         return \Module::find($name);
     }
+
+    public static function install($name): void {
+        $module = \Module::find($name);
+        try{
+            \DB::beginTransaction();
+            \Artisan::call("module:migrate ".$name);
+            \Artisan::call("module:seed ".$name);
+            $module->enable();
+            \DB::commit();
+        }catch (\Exception $exception){
+            \DB::rollBack();
+            error_log($exception->getMessage());
+        }
+    }
+
 }
