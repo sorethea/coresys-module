@@ -2,45 +2,10 @@
 
 namespace Modules\Coresys\Classes;
 
-use Illuminate\Foundation\AliasLoader;
-use Modules\Coresys\Installers\FileInstaller;
-use Nwidart\Modules\FileRepository;
-use Nwidart\Modules\Module;
-
-class Coresys extends Module
+class Coresys
 {
-    /**
-     * @var
-     */
-    protected mixed $installer;
-    protected mixed $repository;
-
-    public function __construct(Container $app, string $name, $path)
-    {
-        $this->installer = $this->app[FileInstaller::class];
-        parent::__construct($app, $name, $path);
+    public static function all(){
+        return \Modue::all();
     }
 
-    public static function install():void{
-        registerAliases();
-    }
-
-    public function registerAliases(): void
-    {
-        $loader = AliasLoader::getInstance();
-        foreach ($this->get('aliases', []) as $aliasName => $aliasClass) {
-            $loader->alias($aliasName, $aliasClass);
-            dd($aliasClass);
-        }
-    }
-
-    public function registerProviders(): void
-    {
-
-    }
-
-    public function getCachedServicesPath(): string
-    {
-
-    }
 }
