@@ -21,7 +21,7 @@ class Coresys extends Module
 //        $this->installer = $this->app[FileInstaller::class];
 //    }
 
-    public function install():string{
+    public static function install():string{
         return "This module is installed";
     }
 }
