@@ -19,9 +19,9 @@ class Coresys
         return $module->get("type")??'module';
     }
 
-    public static function setType($name,$type): void {
+    public static function isInstalled($name): bool{
         $module = \Module::find($name);
-        if(!empty($module)) $module->json()->set("type",$type)->save();
+        return $module->get("installed")??false;
     }
 
     public static function install($name): void {
@@ -32,6 +32,7 @@ class Coresys
                 \Artisan::call("module:migrate-refresh ".$name);
                 \Artisan::call("module:seed ".$name);
                 $module->enable();
+                $module->json()->set("installed",true)->save();
                 \DB::commit();
             }
         }catch (\Throwable $e){
@@ -47,6 +48,7 @@ class Coresys
                 \DB::beginTransaction();
                 \Artisan::call("module:migrate-rollback ".$name);
                 $module->disable();
+                $module->json()->set("installed",false)->save();
                 \DB::commit();
             }
         }catch (\Throwable $e){
