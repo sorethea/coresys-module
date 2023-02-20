@@ -22,9 +22,9 @@ class Coresys
             \Artisan::call("module:seed ".$name);
             $module->enable();
             \DB::commit();
-        }catch (\Exception $exception){
+        }catch (\Throwable $e){
             \DB::rollBack();
-            error_log($exception->getMessage());
+            report($e);
         }
     }
 
@@ -35,9 +35,9 @@ class Coresys
             \Artisan::call("module:migrate-rollback ".$name);
             $module->disable();
             \DB::commit();
-        }catch (\Exception $exception){
+        }catch (\Throwable $e){
             \DB::rollBack();
-            error_log($exception->getMessage());
+            report($e);
         }
     }
 
