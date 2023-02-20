@@ -1,0 +1,12 @@
+{
+    "name": "Coresys",
+    "alias": "coresys",
+    "description": "",
+    "class": "module",
+    "keywords": [],
+    "priority": 0,
+    "providers": [
+        "Modules\\Coresys\\Providers\\CoresysServiceProvider"
+    ],
+    "files": []
+}
