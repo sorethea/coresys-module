@@ -4,6 +4,7 @@ namespace Modules\Coresys\Providers;
 
 use Illuminate\Support\ServiceProvider;
 use Illuminate\Database\Eloquent\Factory;
+use Modules\Coresys\Contracts\CoresysInterface;
 
 class CoresysServiceProvider extends ServiceProvider
 {
@@ -61,6 +62,6 @@ class CoresysServiceProvider extends ServiceProvider
      */
     public function provides()
     {
-        return [];
+        return [ CoresysInterface::class,'coresys'];
     }
 }
