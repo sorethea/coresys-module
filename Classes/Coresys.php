@@ -21,7 +21,7 @@ class Coresys
 
     public static function setType($name,$type): void {
         $module = \Module::find($name);
-        if(!empty($module)) $module->json()->set("type",$type);
+        if(!empty($module)) $module->json()->set("type",$type)->save();
     }
 
     public static function install($name): void {
