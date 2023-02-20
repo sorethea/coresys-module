@@ -15,7 +15,6 @@ class Coresys
     }
 
     public static function install($name): void {
-
         try{
             $module = \Module::find($name);
             if(!empty($module)){
@@ -27,7 +26,6 @@ class Coresys
             }
         }catch (\Throwable $e){
             \DB::rollBack();
-            report($e);
         }
     }
 
@@ -43,7 +41,6 @@ class Coresys
             }
         }catch (\Throwable $e){
             \DB::rollBack();
-            report($e);
         }
     }
 
