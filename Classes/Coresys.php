@@ -16,7 +16,7 @@ class Coresys
 
     public static function getType($name): string{
         $module = \Module::find($name);
-        return $module->get("type");
+        return $module->get("type")??'undefined';
     }
 
     public static function install($name): void {

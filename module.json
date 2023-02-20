@@ -1,6 +1,7 @@
 {
     "name": "Coresys",
     "alias": "coresys",
+    "type": "system",
     "description": "",
     "class": "module",
     "keywords": [],
