@@ -11,7 +11,7 @@
     "extra": {
         "laravel": {
             "providers": [
-                "Modules\\Core\\Providers\\CoreServiceProvider"
+                "Modules\\Coresys\\Providers\\CoresysServiceProvider"
             ],
             "aliases": {
 
@@ -22,5 +22,8 @@
         "psr-4": {
             "Modules\\Coresys\\": ""
         }
+    },
+    "require": {
+
     }
 }
