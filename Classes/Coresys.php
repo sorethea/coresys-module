@@ -28,4 +28,17 @@ class Coresys
         }
     }
 
+    public static function uninstall($name): void {
+        $module = \Module::find($name);
+        try{
+            \DB::beginTransaction();
+            \Artisan::call("module:migrate-rollback ".$name);
+            $module->disable();
+            \DB::commit();
+        }catch (\Exception $exception){
+            \DB::rollBack();
+            error_log($exception->getMessage());
+        }
+    }
+
 }
